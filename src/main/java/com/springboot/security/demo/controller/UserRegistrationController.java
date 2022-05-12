@@ -26,7 +26,18 @@ public class UserRegistrationController {
     }
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto userRegistrationDto){
-        this.userService.save(userRegistrationDto);
-        return "redirect:/registration?success";
+        try {
+            this.userService.save(userRegistrationDto);
+            return "redirect:/registration?success";
+        }
+        catch (Exception e){
+            return "redirect:/registration?failed";
+        }
+
     }
+
+    /*@GetMapping("/login")
+    public String showLoginPage(){
+        return "redirect:/login";
+    }*/
 }
