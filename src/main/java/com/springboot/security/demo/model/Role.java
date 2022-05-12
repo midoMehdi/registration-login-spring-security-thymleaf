@@ -18,6 +18,10 @@ public class Role {
     public Role() {
     }
 
+    public Role(String name){
+        this.name = name;
+    }
+
     public Role(String name, Collection<User> users) {
         this.name = name;
         this.users = users;
